@@ -4,8 +4,14 @@ import numpy as np
 from scipy.spatial.transform import Rotation
 import pandas as pd
 
+# source_file = 'train.json'
+# target_file = 'transforms_train.json'
+source_file = 'validation.json'
+target_file = './transforms_test.json'
+
 # 读取 JSON 文件
-with open("train.json", "r") as f:
+
+with open(source_file, "r") as f:
     trainData = json.load(f)
     
 print('total', len(trainData))
@@ -55,5 +61,5 @@ obj = {
     "camera_angle_x": 0.6911112070083618,
     "frames": []
 }
-with open("./transforms_train.json.json", "w") as f:
+with open(target_file, "w") as f:
     json.dump(obj, f, indent=4)
